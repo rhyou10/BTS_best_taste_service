@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS(Best Taste Service)</title>
+    <style>
+        body {
+            background-image: url("./static/img/배경이미지.png");
+            background-repeat: no-repeat;
+            background-size: 45% 138%;
+            background-position: center top;}
+    </style>
+</head>
+<body>
+
+    <p style="text-align: center;">&nbsp;</p>
+    <p style="text-align: center;">&nbsp;</p>
+    <h1 style="color: black; text-align: center;"><span style="color: #000000;">{{eng_name1}}</span>
+    <br><p style="text-align: center; font-size: 10px; font-weight: lighter;">
+        {{eng_name1}}, {{eng_name2}}</p></h1>
+    <div class = "box" style="text-align: center; overflow:auto; width: 400px; height: 400px; margin: 0 auto;">
+        <img src ="{{url_for('static', filename=filepath)}}" width="270"><br>
+        
+        <p style="text-align: left; font-size: 12px; font-weight: lighter; white-space: pre-line;">
+        {% for al in allergy %}
+            {{al}}
+        {% endfor %}
+        </p>
+
+        <p style="text-align: left; font-size: 12px; font-weight: lighter; white-space: pre-line;">
+            The Ratio of Positive review:{{review_score}}
+            ingredient:{{ing}}
+        </p>  
+        <p style="text-align: left; font-size: 12px; font-weight: lighter; white-space: pre-line;">
+            {% for key, val in tables.items() %}
+                {{key}}:{{val}}
+            {% endfor %}
+        </p> 
+        <div class="parent" style="width: 400px;">
+            <div class="child">
+                <p style="text-align: left; font-size: 12px; font-weight: lighter; white-space: pre-line;">
+                    <a href="{{url[0]}}"> <img src="{{ url_for('static', filename=img_list[0])}}"> </a>
+                    {{ingred[0]}}
+                    {{product[0]}}
+            </div>
+            <div class="child">
+                <p style="text-align: left; font-size: 12px; font-weight: lighter; white-space: pre-line;">
+                    <a href="{{url[1]}}"> <img src="{{ url_for('static', filename=img_list[1])}}"> </a>
+                    {{ingred[1]}}
+                    {{product[1]}}        
+            </div>
+            <div class="child">
+                <p style="text-align: left; font-size: 12px; font-weight: lighter; white-space: pre-line;">
+                    <a href="{{url[2]}}"> <img src="{{ url_for('static', filename=img_list[2])}}"> </a>
+                    {{ingred[2]}}
+                    {{product[2]}}       
+            </div>
+        </div>
+        <style>
+            .parent {
+                display: flex;
+            }
+            .child {
+                flex: 1;
+            }
+        </style>
+
+
+    </div>
+    <p style="text-align: center;">&nbsp;</p>
+    <p style="text-align: center;">&nbsp;</p>    
+</body>
+</html>
